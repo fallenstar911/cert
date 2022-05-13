@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="418f2f0c-9bf7-4343-8d73-2e105d4097f6" name="Changes" comment="jenkinsfile" />
+    <list default="true" id="418f2f0c-9bf7-4343-8d73-2e105d4097f6" name="Changes" comment="vm change">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/main.tf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652441839848</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="vm change">
+      <created>1652449631931</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652449631931</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +128,7 @@
     <MESSAGE value="ssh key" />
     <MESSAGE value="ssh key1.1" />
     <MESSAGE value="jenkinsfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="jenkinsfile" />
+    <MESSAGE value="vm change" />
+    <option name="LAST_COMMIT_MESSAGE" value="vm change" />
   </component>
 </project>
