@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    tools {
+        terraform 'terraform-11'
+    }
+    stages {
+        stage ('git clone'){
+            steps{
+                git 'https://github.com/fallenstar911/cert.git'
+            }
+        }
+        stage ('terraform init'){
+            steps{
+                sh 'terraform init'
+            }
+        }
+        stage ('terraform apply'){
+            steps{
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
