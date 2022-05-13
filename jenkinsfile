@@ -1,9 +1,21 @@
 pipeline {
     agent any
+
     tools {
         terraform 'terraform-11'
+        maven 'maven-build'
     }
     stages {
+        stage ('git boxfuse'){
+            steps{
+                git 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
+            }
+        }
+        stage ('build'){
+            steps{
+                sh 'mvn package'
+            }
+        }
         stage ('git clone'){
             steps{
                 git 'https://github.com/fallenstar911/cert.git'
@@ -17,6 +29,11 @@ pipeline {
         stage ('terraform apply'){
             steps{
                 sh 'terraform apply --auto-approve'
+            }
+        }
+        stage ('terraform out'){
+            steps{
+                sh 'terraform output > 123.txt'
             }
         }
     }
