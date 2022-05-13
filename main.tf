@@ -7,9 +7,9 @@ terraform {
   required_version = ">= 0.13"
 }
 
-variable "cores" {}
-variable "memory" {}
-variable "disksize" {}
+#variable "cores" {}
+#variable "memory" {}
+#variable "disksize" {}
 
 provider "yandex" {
   token     = "AQAAAAAW0L3nAATuweWz_tJfpkd9uc1Nt3QSXtc"
@@ -22,15 +22,15 @@ provider "yandex" {
     name = "terraform1"
 
     resources {
-      cores  = var.cores
-      memory = var.memory
+      cores  = 2
+      memory = 2
     }
 
 
     boot_disk {
       initialize_params {
         image_id = "fd82re2tpfl4chaupeuf"
-        size = var.disksize
+        size = 15
       }
     }
 
@@ -48,14 +48,14 @@ provider "yandex" {
     name = "terraform2"
 
     resources {
-      cores  = var.cores
-      memory = var.memory
+      cores  = 2
+      memory = 2
     }
 
     boot_disk {
       initialize_params {
         image_id = "fd82re2tpfl4chaupeuf"
-        size = var.disksize
+        size = 15
       }
     }
 
@@ -74,14 +74,14 @@ provider "yandex" {
     name = "terraform3"
 
     resources {
-      cores  = var.cores
-      memory = var.memory
+      cores  = 2
+      memory = 2
     }
 
     boot_disk {
       initialize_params {
         image_id = "fd82re2tpfl4chaupeuf"
-        size = var.disksize
+        size = 15
       }
     }
 
