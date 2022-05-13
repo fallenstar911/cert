@@ -40,7 +40,7 @@ provider "yandex" {
     }
 
     metadata = {
-      ssh-keys = "pavel:${file("~/.ssh/id_rsa.pub")}"
+      ssh-keys = "pavel:${file("/home/pavel/.ssh/id_rsa.pub")}"
     }
   }
 
@@ -65,7 +65,7 @@ provider "yandex" {
     }
 
     metadata = {
-      ssh-keys = "pavel:${file("~/.ssh/id_rsa.pub")}"
+      ssh-keys = "pavel:${file("/home/pavel/.ssh/id_rsa.pub")}"
     }
   }
 
@@ -91,7 +91,7 @@ provider "yandex" {
     }
 
     metadata = {
-      ssh-keys = "pavel:${file("~/.ssh/id_rsa.pub")}"
+      ssh-keys = "pavel:${file("/home/pavel/.ssh/id_rsa.pub")}"
     }
   }
 
