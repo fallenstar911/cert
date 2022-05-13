@@ -55,7 +55,7 @@ provider "yandex" {
     v4_cidr_blocks = ["10.55.26.0/24"]
   }
 
-  output "" {
+  output "external_ip_address_vm_1" {
     value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
   }
 
