@@ -25,8 +25,6 @@ provider "yandex" {
       cores  = 2
       memory = 2
     }
-
-
     boot_disk {
       initialize_params {
         image_id = "fd82re2tpfl4chaupeuf"
@@ -35,14 +33,20 @@ provider "yandex" {
     }
 
     network_interface {
-      subnet_id = yandex_vpc_subnet.subnet-1.id
-      nat       = true
+      subnet_id  = yandex_vpc_subnet.subnet-1.id
+      nat        = true
     }
 
     metadata = {
       ssh-keys = "pavel:${file("~/.ssh/id_rsa.pub")}"
     }
+    provisioner "local-exec" {
+    command = "apt update ${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+    }
   }
+
+#ansible-playbook -u ubuntu -i '${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address},' provision_dev.yml
+
 
   resource "yandex_vpc_network" "network-1" {
     name = "network1"

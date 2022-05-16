@@ -31,10 +31,5 @@ pipeline {
                 sh 'terraform apply --auto-approve'
             }
         }
-        stage ('terraform out'){
-            steps{
-                sh 'terraform output > 123.txt'
-            }
-        }
     }
 }
