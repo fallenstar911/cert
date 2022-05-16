@@ -41,12 +41,10 @@ provider "yandex" {
       ssh-keys = "pavel:${file("~/.ssh/id_rsa.pub")}"
     }
     provisioner "local-exec" {
-    command = "apt update ${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+#    command = "apt update ${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+     command = "ansible-playbook -u ubuntu -i '${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}', provision_prod.yml"
     }
   }
-
-#ansible-playbook -u ubuntu -i '${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address},' provision_dev.yml
-
 
   resource "yandex_vpc_network" "network-1" {
     name = "network1"
