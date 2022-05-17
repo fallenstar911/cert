@@ -28,21 +28,26 @@ provider "yandex" {
     boot_disk {
       initialize_params {
         image_id = "fd82re2tpfl4chaupeuf"
-        size = 15
+        size     = 15
       }
     }
 
     network_interface {
-      subnet_id  = yandex_vpc_subnet.subnet-1.id
-      nat        = true
+      subnet_id = yandex_vpc_subnet.subnet-1.id
+      nat       = true
     }
 
     metadata = {
-      ssh-keys = "pavel:${file("~/.ssh/id_rsa.pub")}"
+      ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     }
-    provisioner "local-exec" {
-#    command = "apt update ${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
-     command = "ansible-playbook -u ubuntu -i '${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}', provision_prod.yml"
+    provisioner "remote-exec" {
+      inline = ["sudo apt update && sudo apt install docker.io git -y"]
+      connection {
+        type        = "ssh"
+        user        = "ubuntu"
+        private_key = "${file("~/.ssh/id_rsa")}"
+        host        = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+      }
     }
   }
 
